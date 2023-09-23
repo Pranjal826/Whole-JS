@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script id="fragmentShader" type="x-shader/x-fragment">
+        uniform float time;
+        uniform vec2 resolution;
+        varying vec2 vUv;
+    
+        void main() {
+            vec2 uv = vUv;
+            uv.y += sin(uv.x * 10.0 + time) * 0.05;
+            uv.x += cos(uv.y * 10.0 + time) * 0.05;
+    
+            gl_FragColor = vec4(0.0, 0.3, 0.8, 0.8);
+        }
+    </script>
+</body>
+</html>
